@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from app1 import views
 from django.conf.urls.static import static
 
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('', include('app1.urls')),
     path('account/', include('account.urls')),
     path('destinations/', include('destinations.urls')),
+    path('destination/', views.destinationlist.as_view())
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
