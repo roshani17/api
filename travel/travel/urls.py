@@ -26,7 +26,15 @@ urlpatterns = [
     path('', include('app1.urls')),
     path('account/', include('account.urls')),
     path('destinations/', include('destinations.urls')),
-    path('destination/', views.destinationlist.as_view())
+    path('destination/', views.destinationlist.as_view()),
+    path('destinationName/', views.destinationNamelist.as_view()),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>/', views.UserDetail.as_view()),
 ]
+
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]
+
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
